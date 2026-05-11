@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Library Management System</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <style type="text/css">
+        a:hover{
+            color: #e650de;
+            text-decoration: underline;
+            text-decoration-color: #e650de;
+            cursor: pointer;
+        }
+        .hover{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,6 +44,7 @@
 
                         <button type="submit" class="login-btn">Sign In</button>
                     </form>
+                    <a href="../features/UserRegistation.php" class="hover" style="margin-top: 12px; display: block; ">Do you haven't an account?</a>
                 </div>
             </div>
         </div>

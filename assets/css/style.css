@@ -5,6 +5,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html{
+    behavior: smooth;
+
+}
+
 .body-logingForm {
     background-color: #f4f7f6;
     height: 100vh;
@@ -13,7 +18,6 @@
     justify-content: center;
 }
 
-/* Main Container - Vertical split */
 .login-container {
     display: flex;
     width: 900px;
@@ -24,7 +28,7 @@
     overflow: hidden;
 }
 
-/* Left Side - color mixing with black and blue */
+
 .left-side {
     flex: 1;
     background: linear-gradient(135deg, #001f3f 0%, #007BFF 100%);
@@ -50,7 +54,7 @@
     opacity: 0.8;
 }
 
-/* Right Side - Pure White */
+
 .right-side {
     flex: 1;
     background-color: #ffffff;
@@ -60,7 +64,7 @@
     padding: 40px;
 }
 
-/* Login Card inside white area */
+
 .login-card {
     width: 100%;
     max-width: 350px;
@@ -119,5 +123,5 @@
 
 .login-btn:hover {
     background-color: #0056b3;
-    transform: translateY(-2px); /* Button එක උඩට එන effect එක */
+    transform: translateY(-2px); 
 }

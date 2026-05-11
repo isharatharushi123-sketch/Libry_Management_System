@@ -10,11 +10,11 @@ try{
         die("Connection failed: " . $conn->connect_error);
     }
     else{
-        echo json_encode(['dbstatus' => 'success', 'message' => 'Connected successfully']);
+        //echo json_encode(['dbstatus' => 'success', 'message' => 'Connected successfully']);
     }
 
 }
 catch(Exeption $e){
-    echo json_encode(['dbstatus' => 'error', 'message' => 'Connection failed: ' . $e->getMessage()]);
+    //echo json_encode(['dbstatus' => 'error', 'message' => 'Connection failed: ' . $e->getMessage()]);
 }
 ?>

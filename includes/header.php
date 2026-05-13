@@ -35,7 +35,7 @@
               </ul>
             </li>
              <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Libry_management_System/features/components/borrow_books.php">Borrow Records & Management</a>
+              <a class="nav-link active" aria-current="page" href="/Libry_management_System/features/book_borrow/borrow.php">Borrow Records & Management</a>
             </li>
              <li class="nav-item">
               <button class="nav-link active" aria-current="page" onclick="logout()">Logout</button>

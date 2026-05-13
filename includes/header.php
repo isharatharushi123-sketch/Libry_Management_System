@@ -27,11 +27,12 @@
                 managements
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/user_management.php">User Management</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/user_management.php">User Management</a></li>
                 <li><a class="dropdown-item" href="/Libry_management_System/features/components/book_reg.php">Book Management</a></li>
                 <li><a class="dropdown-item" href="/Libry_management_System/features/components/category_reg.php">Category Management</a></li>
                 <li><a class="dropdown-item" href="/Libry_management_System/features/components/fine_management.php">Fine Management</a></li>
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/member_reg.php">Member Management</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/book_borrow/borrow.php">Book Borrow</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/member_registation/member_form.php">Member Management</a></li>
               </ul>
             </li>
              <li class="nav-item">

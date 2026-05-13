@@ -152,11 +152,10 @@
 
             let isValid = true;
 
-            // පරණ errors ඔක්කොම මකනවා
             document.getElementById('userid-error').innerText = '';
             document.getElementById('password-Err').innerText = '';
             document.getElementById('Re-password-Err').innerText = '';
-            document.getElementById('backendErr').innerText = ''; // Backend error එකත් clear කරනවා
+            document.getElementById('backendErr').innerText = '';
             
             useridInput.classList.remove('input-error');
             passwordInput.classList.remove('input-error');

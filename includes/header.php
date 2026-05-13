@@ -29,7 +29,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/Libry_management_System/features/user_management.php">User Management</a></li>
                 <li><a class="dropdown-item" href="/Libry_management_System/features/book_registation/Book_Registation.php">Book Management</a></li>
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/category_reg.php">Category Management</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/category_Reg.php">Category Management</a></li>
                 <li><a class="dropdown-item" href="/Libry_management_System/features/member_registation/member_form.php">Member Management</a></li>
               </ul>
             </li>

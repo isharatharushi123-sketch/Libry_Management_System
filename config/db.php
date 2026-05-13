@@ -1,20 +1,9 @@
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$database="library_management_system";
 
-try{
-    $conn =new mysqli($servername,$username,$password,$database);
-    if($conn->connect_error){
-        die("Connection failed: " . $conn->connect_error);
-    }
-    else{
-        //echo json_encode(['dbstatus' => 'success', 'message' => 'Connected successfully']);
-    }
+$conn = mysqli_connect("localhost","root","","library_system");
 
+if(!$conn){
+    die("Connection Failed : " . mysqli_connect_error());
 }
-catch(Exeption $e){
-    //echo json_encode(['dbstatus' => 'error', 'message' => 'Connection failed: ' . $e->getMessage()]);
-}
+
 ?>

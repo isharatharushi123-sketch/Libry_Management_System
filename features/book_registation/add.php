@@ -93,7 +93,7 @@ Add Book
 
 </button>
 
-<a href="index.php"
+<a href="Book_Registation.php"
 class="btn btn-secondary">
 
 Back

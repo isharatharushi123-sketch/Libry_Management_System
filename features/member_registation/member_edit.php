@@ -127,7 +127,7 @@ if(isset($_GET['id'])) {
 
             <div class="form-group">
                 <label>Member ID:</label>
-                <input type="text" name="member_id" value="<?php echo htmlspecialchars($row['member_id']); ?>" required>
+                <input type="text" name="member_id" value="<?php echo htmlspecialchars($row['member_id']); ?>" readonly style="background-color: #f1f1f1; cursor: not-allowed;">
             </div>
 
             <div class="form-group">

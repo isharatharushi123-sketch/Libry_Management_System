@@ -3,19 +3,23 @@ require_once('../../config/db.php');
 require_once('../../Session/session.php');
 require_login();
 
-$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-// 1. delete child table first
-mysqli_query($conn, "DELETE FROM bookborrower WHERE member_id='$id'");
 
-// 2. delete member
-$sql = "DELETE FROM member WHERE member_id='$id'";
+    $del_child = $conn->prepare("DELETE FROM bookborrower WHERE member_id = ?");
+    $del_child->bind_param("s", $id);
+    $del_child->execute();
 
-if(mysqli_query($conn, $sql)){
-    header("Location: member_form.php");
-    exit();
+    $del_member = $conn->prepare("DELETE FROM member WHERE member_id = ?");
+    $del_member->bind_param("s", $id);
+
+    if ($del_member->execute()) {
+        $_SESSION['success'] = "Member deleted successfully!";
+    } else {
+        $_SESSION['error'] = "Delete failed: " . $conn->error;
+    }
 }
-else{
-    die("Delete Failed: " . mysqli_error($conn));
-}
+header("Location: member_form.php");
+exit();
 ?>

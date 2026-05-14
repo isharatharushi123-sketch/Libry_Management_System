@@ -27,6 +27,25 @@ include('../../includes/header.php');
         margin-bottom: 20px;
     }
 
+    /* Message Styles */
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+    }
+    .alert-error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
     .form-container {
         background: #ffffff;
         padding: 25px;
@@ -123,30 +142,39 @@ include('../../includes/header.php');
         margin-right: 5px;
     }
 
-    .btn-edit {
-        background-color: #2ecc71;
-    }
-
-    .btn-delete {
-        background-color: #e74c3c;
-    }
-
-    .btn-edit:hover, .btn-delete:hover {
-        opacity: 0.8;
-    }
-
+    .btn-edit { background-color: #2ecc71; }
+    .btn-delete { background-color: #e74c3c; }
+    .btn-edit:hover, .btn-delete:hover { opacity: 0.8; }
 </style>
 
 <div class="container">
+
+
+    <?php if (isset($_SESSION['error'])): ?>
+        <div class="alert alert-error">
+            <?php 
+                echo $_SESSION['error']; 
+                unset($_SESSION['error']); 
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="alert alert-success">
+            <?php 
+                echo $_SESSION['success']; 
+                unset($_SESSION['success']); 
+            ?>
+        </div>
+    <?php endif; ?>
 
     <div class="form-container">
         <h2>Library Member Registration</h2>
 
         <form action="member_insert.php" method="POST">
-            
             <div class="form-group">
                 <label>Member ID:</label>
-                <input type="text" name="member_id" required>
+                <input type="text" name="member_id" placeholder="Ex: M001" required>
             </div>
 
             <div class="form-group">
@@ -170,52 +198,54 @@ include('../../includes/header.php');
             </div>
 
             <button type="submit" class="btn-submit">Register Member</button>
-
         </form>
     </div>
-
 
     <div class="table-container">
         <h2>Registered Members</h2>
 
         <table>
-            <tr>
-                <th>Member ID</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Birthday</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-
-            <?php
-            $stmt = $conn->prepare("SELECT * FROM member");
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()){
-            ?>
+            <thead>
                 <tr>
-                    <td><?php echo htmlspecialchars($row['member_id']); ?></td>
-                    <td><?php echo htmlspecialchars($row['first_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['last_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['birthday']); ?></td>
-                    <td><?php echo htmlspecialchars($row['email']); ?></td>
-                    <td>
-                        <a href="member_edit.php?id=<?php echo urlencode($row['member_id']); ?>" class="btn-edit">Edit</a>
-                        <a href="member_delete.php?id=<?php echo urlencode($row['member_id']); ?>" class="btn-delete" onclick="return confirm('Are you sure you want to delete this member?');">Delete</a>
-                    </td>
+                    <th>Member ID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Birthday</th>
+                    <th>Email</th>
+                    <th>Actions</th>
                 </tr>
-            <?php
+            </thead>
+            <tbody>
+                <?php
+                // Query එක execute කිරීම
+                $sql = "SELECT * FROM member ORDER BY member_id ASC";
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)){
+                ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['member_id']); ?></td>
+                        <td><?php echo htmlspecialchars($row['first_name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['last_name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['birthday']); ?></td>
+                        <td><?php echo htmlspecialchars($row['email']); ?></td>
+                        <td>
+                            <a href="member_edit.php?id=<?php echo urlencode($row['member_id']); ?>" class="btn-edit">Edit</a>
+                            <a href="member_delete.php?id=<?php echo urlencode($row['member_id']); ?>" 
+                               class="btn-delete" 
+                               onclick="return confirm('Are you sure you want to delete this member?');">Delete</a>
+                        </td>
+                    </tr>
+                <?php
+                    }
+                } else {
+                    echo "<tr><td colspan='6' style='text-align: center;'>No members registered yet.</td></tr>";
                 }
-            } else {
-                echo "<tr><td colspan='6' style='text-align: center;'>No members registered yet.</td></tr>";
-            }
-            ?>
+                ?>
+            </tbody>
         </table>
     </div>
-
 </div>
 
 <?php include('../../includes/footer.php');?>

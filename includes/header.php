@@ -28,23 +28,18 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/Libry_management_System/features/user_management.php">User Management</a></li>
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/book_reg.php">Book Management</a></li>
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/category_reg.php">Category Management</a></li>
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/fine_management.php">Fine Management</a></li>
-                <li><a class="dropdown-item" href="/Libry_management_System/features/components/member_reg.php">Member Management</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/book_registation/Book_Registation.php">Book Management</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/category_Reg.php">Category Management</a></li>
+                <li><a class="dropdown-item" href="/Libry_management_System/features/member_registation/member_form.php">Member Management</a></li>
               </ul>
             </li>
              <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Libry_management_System/features/components/borrow_books.php">Borrow Records</a>
+              <a class="nav-link active" aria-current="page" href="/Libry_management_System/features/book_borrow/borrow.php">Borrow Records & Management</a>
             </li>
              <li class="nav-item">
               <button class="nav-link active" aria-current="page" onclick="logout()">Logout</button>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search any Books" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
